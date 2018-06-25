@@ -8,7 +8,7 @@ lor.set("Human","Aragorn");
 lor.set("Elf","Legolas");
 lor.set("Maiar","The Necromancer");
 lor.set("Maiar","Sauron");
-// lor.set("RingBearer","Gollum");
+lor.set("RingBearer","Gollum");
 // lor.set("LadyOfLight","Galadriel");
 // lor.set("HalfElven","Arwen");
 // lor.set("Ent","Treebeard");
