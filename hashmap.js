@@ -1,8 +1,5 @@
 'use strict';
 
-HashMap.MAX_LOAD_RATIO = 0.9;
-HashMap.SIZE_RATIO = 3;
-
 class HashMap {
   constructor(initialCapacity = 8){
     this.length = 0;
@@ -22,16 +19,19 @@ class HashMap {
   set(key, value){
     const loadRatio = (this.length + this._deleted +1) / this._capacity;
     if (loadRatio > HashMap.MAX_LOAD_RATIO){
-      this._resize(this._capacity * HashMap.MAX_LOAD_RATIO);
+      this._resize(this._capacity * HashMap.SIZE_RATIO);
     }
 
     const index = this._findSlot(key);
+    if(!this._slots[index]){ 
+      this.length++;
+    }
     this._slots[index] = {
       key,
       value,
       deleted: false
     };
-    this.length++;
+
   }
 
   remove(key){
@@ -82,3 +82,7 @@ class HashMap {
   }
 
 }
+HashMap.MAX_LOAD_RATIO = 0.9;
+HashMap.SIZE_RATIO = 3;
+
+module.exports = HashMap;
